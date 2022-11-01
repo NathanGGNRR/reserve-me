@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BookingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/backToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:fontFamily="@font/museo_regular"
+        app:layout_constraintBottom_toTopOf="@id/id_booking_details_location_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/abc_vector_test"
+        app:titleTextColor="@color/white" />
+
+    <TextView
+        android:id="@+id/id_booking_details_location_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/header"
+        android:fontFamily="@font/museo_bold"
+        android:text="Placeholder Location Display"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toTopOf="@id/id_booking_details_booked_by"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToolbar" />
+
+    <TextView
+        android:id="@+id/id_booking_details_booked_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/subheader"
+        android:fontFamily="@font/museo_regular"
+        android:text="Placeholder Booked By"
+        app:layout_constraintBottom_toTopOf="@id/id_booking_details_start_at"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_booking_details_location_display" />
+
+    <TextView
+        android:id="@+id/id_booking_details_start_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_regular"
+        android:text="Placeholder Start at"
+        app:layout_constraintBottom_toTopOf="@id/id_booking_details_booked_by"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin_divide"
+        app:layout_constraintTop_toBottomOf="@id/id_booking_details_booked_by" />
+
+    <TextView
+        android:id="@+id/id_booking_details_end_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_regular"
+        android:text="Placeholder End at"
+        app:layout_constraintBottom_toTopOf="@+id/id_booking_details_book_at"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_booking_details_booked_by"
+        android:paddingRight="@dimen/activity_horizontal_margin_divide"
+        />
+
+    <TextView
+        android:id="@+id/id_booking_details_book_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_regular"
+        android:text="Placeholder Book at"
+        app:layout_constraintBottom_toTopOf="@id/unbook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_booking_details_end_at" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/id_recycler_participants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/unbook"
+        android:paddingRight="@dimen/activity_horizontal_margin_divide"
+        android:paddingLeft="@dimen/activity_horizontal_margin_divide"
+        tools:listitem="@layout/participants_list" />
+    <Button
+        android:id="@+id/unbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_regular"
+        android:text="Unbook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_booking_details_book_at" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titleAddBooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_bold"
+        android:text="@string/add_booking"
+        android:textSize="@dimen/header"
+        app:layout_constraintBottom_toTopOf="@id/numberLimit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide"/>
+
+    <TextView
+        android:id="@+id/numberLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_bold"
+        android:text="Limited by 6 participants"
+        android:textSize="@dimen/normal"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/headerTitleDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleAddBooking"
+        android:layout_marginTop="@dimen/activity_vertical_margin_smaller"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerTitleDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberLimit"
+        app:layout_constraintBottom_toTopOf="@id/headerDate"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_title_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+        <TextView
+            android:id="@+id/locationHeaderStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:text="@string/start_date"
+            android:textSize="@dimen/subheader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/locationHeaderEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:text="@string/end_date"
+            android:textSize="@dimen/subheader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/first_title_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTitleDate"
+        app:layout_constraintBottom_toTopOf="@id/headerErrorDate">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <LinearLayout
+            android:id="@+id/headerStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/headerTextStartDate"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/activity_horizontal_margin_divide"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/datePickerStartDate"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/rounded_left_text_field">
+
+                <TextView
+                    android:id="@+id/textStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_regular"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textStartDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_regular"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin_smaller"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/datePickerStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_right_button"
+                android:contentDescription="@string/open_date_picker"
+                android:padding="@dimen/activity_vertical_margin_divide"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/headerTextStartDate"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/headerEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+            app:layout_constraintStart_toStartOf="@id/first_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/headerTextEndDate"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/activity_horizontal_margin_divide"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/datePickerEndDate"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/rounded_left_text_field">
+
+                <TextView
+                    android:id="@+id/textEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_regular"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textEndDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_regular"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin_smaller"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/datePickerEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_right_button"
+                android:contentDescription="@string/open_date_picker"
+                android:padding="@dimen/activity_vertical_margin_divide"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/headerTextEndDate"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerErrorDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerDate"
+        app:layout_constraintBottom_toTopOf="@id/expandBookings"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_error_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+        <TextView
+            android:id="@+id/errorStartDate"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:visibility="invisible"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/errorEndDate"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/error"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/first_error_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/expandBookings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/headerErrorDate"
+        app:layout_constraintBottom_toTopOf="@id/expandBookingsList"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/titleExpandBookings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:text="@string/see_bookings"
+            android:textSize="@dimen/subheader"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_expand_more"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:contentDescription="@string/arrow_to_expand" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/expandBookingsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expandBookings"
+        app:layout_constraintBottom_toTopOf="@id/titleParticipants"
+        android:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentHeaderExpandBookings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintBottom_toTopOf="@id/expandListBookings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/first_expand_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".40" />
+
+
+            <TextView
+                android:id="@+id/expandHeaderStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/start_date"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/expandHeaderEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/end_date"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/first_expand_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expandListBookings"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+            app:layout_constraintTop_toBottomOf="@id/parentHeaderExpandBookings"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titleParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_bold"
+        android:text="@string/participants"
+        android:textSize="@dimen/subheader"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toTopOf="@id/bookingParticipants"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expandBookingsList" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookingParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleParticipants"
+        app:layout_constraintBottom_toTopOf="@id/limitedSelectedPerson" />
+
+    <LinearLayout
+        android:id="@+id/limitedSelectedPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookingParticipants"
+        app:layout_constraintBottom_toTopOf="@id/buttonActions"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/labelSelectedPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/museo_regular"
+            android:textSize="@dimen/normal"
+            android:text="@string/selected_person"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/numberSelectedPerson"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/numberSelectedPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/museo_bold"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/secondary"
+            android:text="@string/_0"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/labelSelectedPerson" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/limitedSelectedPerson">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_action_button_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".50" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:text="@string/cancel"
+            android:textSize="@dimen/normal"
+            android:backgroundTint="@color/error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/first_action_button_guideline"/>
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_bold"
+            android:text="@string/add"
+            android:textSize="@dimen/normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/first_action_button_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

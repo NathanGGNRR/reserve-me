@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LocationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/backToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:fontFamily="@font/museo_regular"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/abc_vector_test"
+        app:titleTextColor="@color/white"
+        android:layout_marginTop="55dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/pictureLocation"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/background" />
+
+            <TextView
+                android:id="@+id/titleLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:fontFamily="@font/museo_bold"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                android:text="Salle 206 - Salle de réunion (26/04/2021)"
+                android:textAlignment="center"
+                android:textSize="@dimen/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pictureLocation" />
+
+            <LinearLayout
+                android:id="@+id/headerTitleDialogLocationBooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleLocation"
+                app:layout_constraintBottom_toTopOf="@id/descriptionLocation"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/availableIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_regular"
+                    android:text="Available NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/success"
+                    android:textSize="@dimen/subtitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/addBooking"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/addBooking"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/rounded_corner_add"
+                    android:contentDescription="@string/add_new_booking"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_add_icon"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin_divide"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/availableIcon"
+                    android:onClick="onAddBookingClick"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/descriptionLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:fontFamily="@font/museo_regular"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                android:text="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMake"
+                android:textAlignment="center"
+                android:textSize="@dimen/header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/availableIcon" />
+
+            <TextView
+                android:id="@+id/complementInformationLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:fontFamily="@font/museo_regular"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                android:text="Étage 2 bâtiment C"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/subheader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionLocation"
+                app:layout_constraintBottom_toTopOf="@id/lastInfo"/>
+
+            <LinearLayout
+                android:id="@+id/lastInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/complementInformationLocation"
+                app:layout_constraintBottom_toTopOf="@id/headerLocationObject">
+
+                <TextView
+                    android:id="@+id/numberLimit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:fontFamily="@font/museo_bold"
+                    android:text="Limited by 6 participants"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintEnd_toStartOf="@id/ownedBy" />
+
+                <TextView
+                    android:id="@+id/ownedBy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:fontFamily="@font/museo_bold"
+                    android:text="Owned by Nathan GAGNIARRE"
+                    android:textSize="@dimen/normal"
+                    app:layout_constraintStart_toEndOf="@id/numberLimit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/headerLocationObject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                app:layout_constraintBottom_toTopOf="@id/locationObjects"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastInfo">
+
+                <TextView
+                    android:id="@+id/headerLocationObjectName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".70"
+                    android:fontFamily="@font/museo_bold"
+                    android:text="@string/object_name"
+                    android:textSize="@dimen/subheader"
+                    app:layout_constraintEnd_toStartOf="@id/headerLocationObjectQuantity" />
+
+                <TextView
+                    android:id="@+id/headerLocationObjectQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".30"
+                    android:fontFamily="@font/museo_bold"
+                    android:text="@string/quantity"
+                    android:textSize="@dimen/subheader"
+                    app:layout_constraintStart_toEndOf="@id/headerLocationObjectName" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/locationObjects"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                android:scrollbarStyle="outsideInset"
+                app:layout_constraintBottom_toTopOf="@id/borderBottomRecyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerLocationObject" />
+
+
+            <View
+                android:id="@+id/borderBottomRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/single_border"
+                app:layout_constraintBottom_toTopOf="@id/titleBookings"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationObjects" />
+
+            <LinearLayout
+                android:id="@+id/titleBookings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/activity_horizontal_margin_divide"
+                android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/borderBottomRecyclerView"
+                app:layout_constraintBottom_toTopOf="@id/bookingsCalendarView"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/bookingsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo_bold"
+                    android:text="@string/list_of_bookings"
+                    android:textSize="@dimen/subheader"
+                    app:layout_constraintEnd_toStartOf="@id/openAllBookings"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/openAllBookings"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin_divide"
+                    android:background="@drawable/rounded_corner"
+                    android:contentDescription="@string/see_all_bookings_of_this_location"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_list_bookings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/bookingsTitle"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:onClick="displayAllBookings"/>
+
+
+
+            </LinearLayout>
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/bookingsCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                android:layout_marginBottom="@dimen/activity_vertical_margin_divide"
+                app:eventsEnabled="true"
+                app:headerColor="@color/white"
+                app:headerLabelColor="@color/secondary"
+                app:daysLabelsColor="@color/third"
+                app:abbreviationsLabelsColor="@color/secondary"
+                app:previousButtonSrc="@drawable/ic_keyboard_left_arrow_button"
+                app:forwardButtonSrc="@drawable/ic_keyboard_right_arrow_button"
+                app:todayLabelColor="@color/secondary" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

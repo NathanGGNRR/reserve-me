@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SearchActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/backToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:fontFamily="@font/museo_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/parentSearchPart"
+        app:navigationIcon="@drawable/abc_vector_test"
+        app:titleTextColor="@color/white" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentSearchPart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_margin_divide"
+        android:paddingBottom="@dimen/activity_vertical_margin_divide"
+        app:layout_constraintBottom_toTopOf="@id/parentListHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToolbar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerTextViews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textViews"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/header_text_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/locationHeaderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/name"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/locationHeaderNumberLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/number_limit"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/header_text_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/textViews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerTextViews"
+            app:layout_constraintBottom_toTopOf="@id/headerTitleDate">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/text_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <LinearLayout
+                android:id="@+id/nameLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/textName"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/museo_regular"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    android:inputType="text"
+                    android:background="@drawable/rounded_left_text_field"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin_divide"/>
+
+                <ImageButton
+                    android:id="@+id/deleteName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_right_button"
+                    android:contentDescription="@string/remove_name_search"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_delete_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="deleteName"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/numberLimitLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                app:layout_constraintStart_toEndOf="@id/text_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/textNumberLimit"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/museo_regular"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/normal"
+                    android:inputType="number"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin_divide"
+                    android:background="@drawable/rounded_left_text_field"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/deleteNumberLimit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_right_button"
+                    android:contentDescription="@string/remove_name_search"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_delete_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="deleteNumberLimit"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerTitleDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViews"
+            app:layout_constraintBottom_toTopOf="@id/headerDate"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/first_title_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+            <TextView
+                android:id="@+id/locationHeaderStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/start_date_available"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/locationHeaderEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:text="@string/end_date_available"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/first_title_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerTitleDate"
+            app:layout_constraintBottom_toTopOf="@id/headerErrorDate">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/date_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <LinearLayout
+                android:id="@+id/headerStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/headerTextStartDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin_divide"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/datePickerStartDate"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/rounded_left_text_field">
+
+                    <TextView
+                        android:id="@+id/textStartDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/museo_regular"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textStartDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/museo_regular"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin_smaller"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/datePickerStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/primary"
+                    android:contentDescription="@string/open_date_picker"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/headerTextStartDate"
+                    app:layout_constraintEnd_toStartOf="@id/removeStartDate"/>
+
+                <ImageButton
+                    android:id="@+id/removeStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_right_button"
+                    android:contentDescription="@string/remove_date_to_search"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_delete_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/datePickerStartDate"
+                    android:onClick="deleteDate"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/headerEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+                app:layout_constraintStart_toStartOf="@id/date_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/headerTextEndDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin_divide"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/datePickerEndDate"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/rounded_left_text_field">
+
+                    <TextView
+                        android:id="@+id/textEndDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/museo_regular"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textEndDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/museo_regular"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin_smaller"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/datePickerEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/primary"
+                    android:contentDescription="@string/open_date_picker"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/headerTextEndDate"
+                    app:layout_constraintEnd_toStartOf="@id/removeEndDate" />
+
+                <ImageButton
+                    android:id="@+id/removeEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_right_button"
+                    android:contentDescription="@string/remove_date_to_search"
+                    android:padding="@dimen/activity_vertical_margin_divide"
+                    android:src="@drawable/ic_delete_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/datePickerEndDate"
+                    android:onClick="deleteDate"/>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerErrorDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin_divide"
+            android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerDate"
+            app:layout_constraintBottom_toTopOf="@id/searchButton"
+            android:layout_marginTop="@dimen/activity_vertical_margin_divide">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/first_error_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+            <TextView
+                android:id="@+id/errorStartDate"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:visibility="invisible"
+                android:textSize="@dimen/normal"
+                android:textColor="@color/error"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/errorEndDate"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_bold"
+                android:textSize="@dimen/normal"
+                android:textColor="@color/error"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/first_error_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/angle_corner"
+            android:contentDescription="@string/delete_booking"
+            android:padding="@dimen/activity_vertical_margin_divide"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/headerDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerErrorDate"
+            android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+            android:onClick="search"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentListHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_margin_divide"
+        android:paddingBottom="@dimen/activity_vertical_margin_divide"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        app:layout_constraintBottom_toTopOf="@id/searchResults"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parentSearchPart">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/header_first_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/header_second_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <TextView
+            android:id="@+id/headerLocationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_regular"
+            android:textSize="@dimen/normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/name"/>
+
+        <TextView
+            android:id="@+id/headerLocationNumberLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_regular"
+            android:textSize="@dimen/normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/header_first_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/number_limit"/>
+
+        <TextView
+            android:id="@+id/headerLocationIsAvailableNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/museo_regular"
+            android:textSize="@dimen/normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/header_second_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/available"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/emptySearchResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/museo_regular"
+        android:textSize="@dimen/subheader"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parentListHeader"
+        android:text="@string/no_result_found"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+        android:visibility="invisible"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchResults"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin_divide"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide"
+        android:scrollbarStyle="outsideInset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parentListHeader" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

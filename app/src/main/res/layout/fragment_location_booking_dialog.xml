@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activities.fragments.LocationBookingDialogFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin_divide"
+        android:paddingEnd="@dimen/activity_horizontal_margin_divide">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentLocationBookingDialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_vertical_margin_divide"
+            android:paddingBottom="@dimen/activity_vertical_margin_divide"
+            app:layout_constraintBottom_toTopOf="@id/borderBottomDialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/borderBottomDialog">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/first_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/second_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".40" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/third_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="1" />
+
+            <TextView
+                android:id="@+id/locationStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_regular"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/first_guideline"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/locationEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_regular"
+                android:textSize="@dimen/normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/second_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/deleteBooking"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/rounded_corner_delete"
+                android:contentDescription="@string/delete_booking"
+                android:padding="@dimen/activity_vertical_margin_divide"
+                android:src="@drawable/ic_delete_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/navigateToBooking"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_divide"
+                android:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/navigateToBooking"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/rounded_corner"
+                android:contentDescription="@string/eyes_icon_to_navigate"
+                android:padding="@dimen/activity_vertical_margin_divide"
+                android:src="@drawable/ic_navigate_to"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="@id/third_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/borderBottomDialog"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/single_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/parentLocationBookingDialogFragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
